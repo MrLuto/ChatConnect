@@ -67,7 +67,7 @@ function getParameterByName(name, url = window.location.href) {
 function includeHTML() {
   var z, i, elmnt, file, xhttp;
   /* Loop through a collection of all HTML elements: */
-  z = document.getElementsByTagName("*");
+  z = document.getElementsByClassName("import");
   for (i = 0; i < z.length; i++) {
     elmnt = z[i];
     /*search for elements with a certain atrribute:*/
