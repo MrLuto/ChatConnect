@@ -74,7 +74,7 @@ function includeHTML() {
     file = getParameterByName('q');
     if (file) {
       /* Make an HTTP request using the attribute value as the file name: */
-      fetch("/pages/" + file)
+      fetch(file)
       .then(response => response.text())
       .then(data => elmnt.innerHTML = data);
 
