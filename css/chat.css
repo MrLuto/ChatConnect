@@ -1,5 +1,7 @@
 body{
-    background:#eee;    
+    background:#eee;
+    width: max-content;
+    height: max-content;    
 }
 .chat-list {
     padding: 0;
@@ -58,7 +60,7 @@ body{
 .chat-list .chat-body {
     margin-left: 20px;
     float: left;
-    width: 70%;
+    width: max-content;
 }
 
 .chat-list .in .chat-message:before {
