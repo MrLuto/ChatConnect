@@ -67,7 +67,7 @@ function includeHTML() {
       /* Make an HTTP request using the attribute value as the file name: */
       fetch('./404.html')
       .then(response => response.text())
-      .then(data => console.log(data));
+      .then(data => elmnt.innerHTML = data);
 
       /* Exit the function: */
       return;
