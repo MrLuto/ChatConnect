@@ -55,6 +55,15 @@
 
 })(jQuery); // End of use strict
 
+function getParameterByName(name, url = window.location.href) {
+  name = name.replace(/[\[\]]/g, '\\$&');
+  var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+      results = regex.exec(url);
+  if (!results) return null;
+  if (!results[2]) return '';
+  return decodeURIComponent(results[2].replace(/\+/g, ' '));
+}
+
 function includeHTML() {
   var z, i, elmnt, file, xhttp;
   /* Loop through a collection of all HTML elements: */
@@ -62,10 +71,10 @@ function includeHTML() {
   for (i = 0; i < z.length; i++) {
     elmnt = z[i];
     /*search for elements with a certain atrribute:*/
-    file = elmnt.getAttribute("w3-include-html");
+    file = getParameterByName('q');
     if (file) {
       /* Make an HTTP request using the attribute value as the file name: */
-      fetch('./404.html')
+      fetch(file)
       .then(response => response.text())
       .then(data => elmnt.innerHTML = data);
 
