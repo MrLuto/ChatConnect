@@ -18,8 +18,6 @@ function Register() {
         alert("The passwords do not match");
         return;
     }
-    // add user to cookie
-    document.cookie = "uid=" + document.getElementById('email').value + "; path=/; max-age="+60*60*24*30; 
     // add user to ./db/users.json
     var user = {
         "email": document.getElementById('email').value,
@@ -33,6 +31,9 @@ function Register() {
     fs.writeFile("./db/users.json", json, 'utf8', function(err) {
         if (err) {
             console.log(err);
+        } else {
+            // add user to cookie
+            document.cookie = "uid=" + document.getElementById('email').value + "; path=/; max-age="+60*60*24*30; 
         }
     });
 
