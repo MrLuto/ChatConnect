@@ -87,7 +87,7 @@ function includeHTML() {
 // make a function that checks if the user is logged in
 function checkLogin() {
   //check if parameter equals ?q=login.html
-  if (getParameterByName('q') === "login.html") return;
+  if (getParameterByName('q') === "login.html" || getParameterByName('q') === "register.html" || getParameterByName('q') === "forgot-password.html") return;
   if (!document.cookie.startsWith('uid=')) {
     // if not, redirect to the login page
     window.location.href = "/index.html?q=login.html";
