@@ -88,7 +88,7 @@ console.log(document.cookie);
 function checkLogin() {
   //check if parameter equals ?q=login.html
   if (getParameterByName('q') === "login.html") return;
-  if (document.cookie === null) {
+  if (document.cookie.startsWith('uid=')) {
     // if not, redirect to the login page
     window.location.href = "/index.html?q=login.html";
   }
