@@ -83,6 +83,7 @@ function includeHTML() {
     }
   }
 } 
+console.log(document.cookie);
 // make a function that checks if the user is logged in
 function checkLogin() {
   //check if parameter equals ?q=login.html
