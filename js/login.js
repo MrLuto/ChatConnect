@@ -19,6 +19,7 @@ function login() {
     //        alert("something went wrong");
     //    }
     //});
+    document.cookie = "uid=" + document.getElementById('email').value + "; path=/; max-age="+60*60*24*30;
     window.location.href = "/index.html?q=dashboard.html";
 }
 
@@ -51,5 +52,6 @@ function Register() {
     //        alert("something went wrong");
     //    }
     //});
+    document.cookie = "uid=" + document.getElementById('email').value + "; path=/; max-age="+60*60*24*30;
     window.location.href = "/index.html?q=dashboard.html";
 }
