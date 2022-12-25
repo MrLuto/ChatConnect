@@ -87,10 +87,17 @@ function includeHTML() {
 // make a function that checks if the user is logged in
 function checkLogin() {
   //check if parameter equals ?q=login.html
-  if (getParameterByName('q') === "login.html" || getParameterByName('q') === "register.html" || getParameterByName('q') === "forgot-password.html" || getParameterByName('q') === "404.html" || getParameterByName('q') === "NotFound.html") return;
-  if (!document.cookie.startsWith('uid=')) {
-    // if not, redirect to the login page
-    window.location.href = "/index.html?q=login.html";
+  if (getParameterByName('q') === "forgot-password.html" || getParameterByName('q') === "404.html" || getParameterByName('q') === "NotFound.html") return;
+  if (getParameterByName('q') === "login.html" || getParameterByName('q') === "register.html") {
+    if (document.cookie.startsWith('uid=')) {
+      // if not, redirect to the login page
+      window.location.href = "/index.html?q=dashboard.html";
+    }
+  } else {
+    if (!document.cookie.startsWith('uid=')) {
+      // if not, redirect to the login page
+      window.location.href = "/index.html?q=login.html";
+    }
   }
 }
 checkLogin();
