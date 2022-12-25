@@ -18,17 +18,17 @@ function Register() {
         alert("The passwords do not match");
         return;
     }
-    // add user to ../db/users.json
+    // add user to /db/users.json
     var user = {
         "email": document.getElementById('email').value,
         "password": document.getElementById('password').value,
         "firstname": document.getElementById('firstname').value,
         "lastname": document.getElementById('lastname').value
     };
-    var users = JSON.parse("../db/users.json");
+    var users = JSON.parse("/db/users.json");
     users.push(user);
     var json = JSON.stringify(users);
-    fs.writeFile("../db/users.json", json, 'utf8', function(err) {
+    fs.writeFile("/db/users.json", json, 'utf8', function(err) {
         if (err) {
             console.log(err);
         } else {
