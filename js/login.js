@@ -4,7 +4,7 @@ function login() {
         return;
     }
     // send data to https://node25.mc-node.net:26133/ChatConnect/login and get response
-    fetch("https://node25.mc-node.net:26133/ChatConnect/login", {
+    fetch("https://example.com/", {
         method: "POST",
         body: JSON.stringify({
             email: document.getElementById('email').value,
@@ -32,7 +32,7 @@ function Register() {
         return;
     }
     // send data to https://node25.mc-node.net:26133/ChatConnect/register and get response
-    fetch("https://node25.mc-node.net:26133/ChatConnect/register", {
+    fetch("https://example.com/", {
         method: "POST",
         body: JSON.stringify({
             email: document.getElementById('email').value,
