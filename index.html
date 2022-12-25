@@ -39,7 +39,37 @@
         }
         
         function Register() {
-            document.cookie = "uid=CodingNepal; path=/; max-age="+60*60*24*30; 
+            // check if email is empty
+            if (document.getElementById('email').value == "") {
+                alert("Email is required");
+                return;
+            }
+            // check if password is empty
+            if (document.getElementById('password').value == "") {
+                alert("Password is required");
+                return;
+            }
+            // check if passwordcheck is empty
+            if (document.getElementById('passwordcheck').value == "") {
+                alert("Password check is required");
+                return;
+            }
+            // check if password and passwordcheck are same
+            if (document.getElementById('password').value != document.getElementById('passwordcheck').value) {
+                alert("Password and Password check are not same");
+                return;
+            }
+            // check if firstname is empty
+            if (document.getElementById('firstname').value == "") {
+                alert("First name is required");
+                return;
+            }
+            // check if lastname is empty
+            if (document.getElementById('lastname').value == "") {
+                alert("Last name is required");
+                return;
+            }
+            document.cookie = "uid=" + document.getElementById('email').value + "; path=/; max-age="+60*60*24*30; 
         }
     </script>
 
