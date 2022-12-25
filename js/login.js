@@ -28,7 +28,7 @@ function Register() {
     var users = JSON.parse("../db/users.json");
     users.push(user);
     var json = JSON.stringify(users);
-    fs.writeFile("./db/users.json", json, 'utf8', function(err) {
+    fs.writeFile("../db/users.json", json, 'utf8', function(err) {
         if (err) {
             console.log(err);
         } else {
