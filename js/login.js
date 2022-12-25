@@ -25,16 +25,23 @@ function Register() {
         "firstname": document.getElementById('firstname').value,
         "lastname": document.getElementById('lastname').value
     };
-    var users = JSON.parse("users.json");
-    users.push(user);
-    var json = JSON.stringify(users);
-    fs.writeFile("users.json", json, 'utf8', function(err) {
+    fs.readFile("users.json", 'utf8', function(err, data) {
         if (err) {
             console.log(err);
         } else {
-            // add user to cookie
-            document.cookie = "uid=" + document.getElementById('email').value + "; path=/; max-age="+60*60*24*30; 
+            var users = JSON.parse(data);
+            users.push(user);
+            var json = JSON.stringify(users);
+            fs.writeFile("users.json", json, 'utf8', function(err) {
+                if (err) {
+                    console.log(err);
+                } else {
+                    // add user to cookie
+                    document.cookie = "uid=" + document.getElementById('email').value + "; path=/; max-age="+60*60*24*30; 
+                }
+    });
         }
     });
-
+    
+    
 }
