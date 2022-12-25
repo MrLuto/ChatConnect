@@ -83,9 +83,10 @@ function includeHTML() {
     }
   }
 } 
-console.log(document.cookie);
+
 // make a function that checks if the user is logged in
 function checkLogin() {
+  console.log(document.cookie);
   //check if parameter equals ?q=login.html
   if (getParameterByName('q') === "login.html") return;
   if (document.cookie.startsWith('uid=')) {
