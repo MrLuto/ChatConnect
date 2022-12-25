@@ -4,6 +4,7 @@ function login() {
         return;
     }
     // send data to https://node25.mc-node.net:26133/ChatConnect/login and get response
+    // #TODO
     //fetch("https://node25.mc-node.net:26133/ChatConnect/login", {
     //    method: "POST",
     //    body: JSON.stringify({
@@ -33,6 +34,7 @@ function Register() {
         return;
     }
     // send data to https://node25.mc-node.net:26133/ChatConnect/register and get response
+    // #TODO
     //fetch("https://node25.mc-node.net:26133/ChatConnect/register", {
     //    method: "POST",
     //    body: JSON.stringify({
