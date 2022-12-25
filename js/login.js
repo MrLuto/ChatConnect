@@ -25,7 +25,7 @@ function Register() {
         "firstname": document.getElementById('firstname').value,
         "lastname": document.getElementById('lastname').value
     };
-    var users = JSON.parse("./db/users.json");
+    var users = JSON.parse("../db/users.json");
     users.push(user);
     var json = JSON.stringify(users);
     fs.writeFile("./db/users.json", json, 'utf8', function(err) {
