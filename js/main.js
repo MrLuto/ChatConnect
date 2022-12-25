@@ -83,3 +83,13 @@ function includeHTML() {
     }
   }
 } 
+console.log(document.cookie);
+// make a function that checks if the user is logged in
+function checkLogin() {
+  //check if parameter equals ?q=login.html
+  if (getParameterByName('q') === "login.html") return;
+  if (localStorage.getItem("id") === null) {
+    // if not, redirect to the login page
+    window.location.href = "/index.html?q=login.html";
+  }
+}
