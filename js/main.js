@@ -83,9 +83,3 @@ function includeHTML() {
     }
   }
 } 
-
-
-
-function Register(username, password, firstname, lastname) {
-  document.cookie = "uid=CodingNepal; path=/; max-age="+60*60*24*30; 
-}

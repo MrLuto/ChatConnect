@@ -24,9 +24,23 @@
 
 <body id="page-top">
     <script>
-        function login(username, password) {
+        function login() {
+            // check if email is empty
+            if (document.getElementById('email').value == "") {
+                alert("Email is required");
+                return;
+            }
+            // check if password is empty
+            if (document.getElementById('password').value == "") {
+                alert("Password is required");
+                return;
+            }
+            document.cookie = "uid=" + document.getElementById('email').value + "; path=/; max-age="+60*60*24*30; 
+        }
+        
+        function Register() {
             document.cookie = "uid=CodingNepal; path=/; max-age="+60*60*24*30; 
-          }
+        }
     </script>
 
     <!-- Page Wrapper -->
