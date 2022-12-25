@@ -18,7 +18,7 @@ function Register() {
         alert("The passwords do not match");
         return;
     }
-    // add user to ./db/users.json
+    // add user to ../db/users.json
     var user = {
         "email": document.getElementById('email').value,
         "password": document.getElementById('password').value,
