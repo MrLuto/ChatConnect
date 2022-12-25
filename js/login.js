@@ -3,8 +3,21 @@ function login() {
         alert("All details are required");
         return;
     }
-    
-    document.cookie = "uid=" + document.getElementById('email').value + "; path=/; max-age="+60*60*24*30; 
+    // send data to https://node25.mc-node.net:26133/ChatConnect/login and get response
+    fetch("https://node25.mc-node.net:26133/ChatConnect/login", {
+        method: "POST",
+        body: JSON.stringify({
+            email: document.getElementById('email').value,
+            password: document.getElementById('password').value
+        })
+    }).then(response => response.json()).then(data => {
+        if (data.success) {
+            document.cookie = "uid=" + document.getElementById('email').value + "; path=/; max-age="+60*60*24*30; 
+            window.location.href = "/index.html?q=dashboard.html";
+        } else {
+            alert("something went wrong");
+        }
+    });
 }
 
 function Register() {
@@ -18,30 +31,21 @@ function Register() {
         alert("The passwords do not match");
         return;
     }
-    // add user to /db/users.json
-    var user = {
-        "email": document.getElementById('email').value,
-        "password": document.getElementById('password').value,
-        "firstname": document.getElementById('firstname').value,
-        "lastname": document.getElementById('lastname').value
-    };
-    fs.readFile("users.json", 'utf8', function(err, data) {
-        if (err) {
-            console.log(err);
+    // send data to https://node25.mc-node.net:26133/ChatConnect/register and get response
+    fetch("https://node25.mc-node.net:26133/ChatConnect/register", {
+        method: "POST",
+        body: JSON.stringify({
+            email: document.getElementById('email').value,
+            password: document.getElementById('password').value,
+            firstname: document.getElementById('firstname').value,
+            lastname: document.getElementById('lastname').value
+        })
+    }).then(response => response.json()).then(data => {
+        if (data.success) {
+            document.cookie = "uid=" + document.getElementById('email').value + "; path=/; max-age="+60*60*24*30;
+            window.location.href = "/index.html?q=dashboard.html";
         } else {
-            var users = JSON.parse(data);
-            users.push(user);
-            var json = JSON.stringify(users);
-            fs.writeFile("users.json", json, 'utf8', function(err) {
-                if (err) {
-                    console.log(err);
-                } else {
-                    // add user to cookie
-                    document.cookie = "uid=" + document.getElementById('email').value + "; path=/; max-age="+60*60*24*30; 
-                }
-    });
+            alert("something went wrong");
         }
     });
-    
-    
 }
