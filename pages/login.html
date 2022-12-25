@@ -24,8 +24,8 @@
 <body class="bg-gradient-primary">
     <script>
         // write a function that creates a cookie
-        function createCookie(name, value, days) {
-            document.cookie = "CookieBy=CodingNepal; path=/; max-age="+60*60*24*30; 
+        function login(username, password) {
+            document.cookie = "uid=CodingNepal; path=/; max-age="+60*60*24*30; 
         }
     </script>
 
@@ -63,10 +63,10 @@
                                                     Me</label>
                                             </div>
                                         </div>
-                                        <a onclick="createCookie('test', 'teste', 30);" class="btn btn-primary btn-user btn-block login">
+                                        <a onclick="login('test', 'test')" class="btn btn-primary btn-user btn-block login">
                                             Login
                                         </a>
-                                        <button onclick="createCookie('test', 'teste', 30)" class="btn btn-primary btn-user btn-block login">Click me</button>
+                                        <button onclick="login(username, password)" class="btn btn-primary btn-user btn-block login">Click me</button>
                                     </form>
                                     <hr>
                                     <div class="text-center">
