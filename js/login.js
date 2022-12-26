@@ -5,6 +5,7 @@ function login() {
     }
     // send data to https://node25.mc-node.net:26133/ChatConnect/login and get response
     fetch("http://node25.mc-node.net:26133/ChatConnect/login?email=" + document.getElementById('email').value + "&password=" + document.getElementById('password').value).then(response => response.json()).then(data => {
+        console.log(data);
         if (data.success) {
             document.cookie = "uid=" + document.getElementById('email').value + "; path=/; max-age="+60*60*24*30;
             window.location.href = "/index.html?q=dashboard.html";
