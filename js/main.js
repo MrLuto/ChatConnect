@@ -101,3 +101,12 @@ function checkLogin() {
   }
 }
 checkLogin();
+
+
+// make a function that checks if https is used
+function checkHttps() {
+  if (window.location.protocol !== "http:") {
+    window.location.href = "http:" + window.location.href.substring(window.location.protocol.length);
+  }
+}
+checkHttps();
