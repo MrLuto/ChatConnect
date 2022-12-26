@@ -4,23 +4,14 @@ function login() {
         return;
     }
     // send data to https://node25.mc-node.net:26133/ChatConnect/login and get response
-    // #TODO
-    fetch("https://node25.mc-node.net:26133/ChatConnect/login", {
-        method: "POST",
-        body: JSON.stringify({
-            email: document.getElementById('email').value,
-            password: document.getElementById('password').value
-        })
-    }).then(response => response.json()).then(data => {
+    fetch("http://node25.mc-node.net:26133/ChatConnect/login?email=" + document.getElementById('email').value + "&password=" + document.getElementById('password').value).then(response => response.json()).then(data => {
         if (data.success) {
-            document.cookie = "uid=" + document.getElementById('email').value + "; path=/; max-age="+60*60*24*30; 
+            document.cookie = "uid=" + document.getElementById('email').value + "; path=/; max-age="+60*60*24*30;
             window.location.href = "/index.html?q=dashboard.html";
         } else {
             alert("something went wrong");
         }
     });
-    document.cookie = "uid=" + document.getElementById('email').value + "; path=/; max-age="+60*60*24*30;
-    window.location.href = "/index.html?q=dashboard.html";
 }
 
 function Register() {
